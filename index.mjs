@@ -49,7 +49,7 @@ app.get('/', async (req, res) => {
     let categorySql =  `SELECT DISTINCT(category) FROM quotes;`;
     const [cRows] = await pool.query(categorySql);
 
-    res.render('home.ejs',{authorRows, cRows});
+    res.render('home2.ejs',{authorRows, cRows});
     
 });
 
@@ -74,7 +74,7 @@ app.get("/searchByKeyword", async(req, res) => {
 
    const [rows] = await pool.query(sql, sqlParams);
    console.log(rows);
-   res.render('results.ejs',{rows});
+   res.render('results2.ejs',{rows});
 });//searchByKeyword
 
 app.get("/searchByAuthor", async(req, res) => {
@@ -88,7 +88,7 @@ app.get("/searchByAuthor", async(req, res) => {
 
    const [rows] = await pool.query(sql, sqlParams);
    console.log(rows);
-   res.render('results.ejs',{rows});
+   res.render('results2.ejs',{rows});
 });//searchByAuthor
 
 app.get("/searchByCategory", async(req, res) => {
@@ -102,7 +102,7 @@ app.get("/searchByCategory", async(req, res) => {
 
     const [rows] = await pool.query(sql, sqlParams);
     console.log(rows);
-    res.render('results.ejs',{rows});
+    res.render('results2.ejs',{rows});
 
 });//searchByCategory
 
@@ -120,7 +120,7 @@ app.get("/searchByLike", async(req, res) => {
 
     const [rows] = await pool.query(sql, sqlParams);
     console.log(rows);
-    res.render('results.ejs',{rows});
+    res.render('results2.ejs',{rows});
 
 });//searchByLike
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body class="bg-light">
+    <%- include("partials/nav.ejs") %>
+    <div class="container py-4">
+        <h1 class="text-center mb-4">Search Results</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <% for (let row of rows) { %>
+                    <div class="card mb-3 shadow-sm">
+                        <div class="card-body">
+                            <blockquote class="mb-0">
+                                <p class="lead mb-2">"<%= row.quote %>"</p>
+                                <footer class="blockquote-footer">
+                                    <a class="authors text-decoration-none" href="#" authorId="<%= row.authorId %>">
+                                        <%= row.firstName %> <%= row.lastName %>
+                                    </a>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                <% } %> 
+            </div>
+        </div>
+
+        <dialog id="authorModal" class="modal-dialog">
+            <div class="modal-content p-4">
+                <div class="author-container text-center">
+                    <img id="authorImage" alt="authorImage" src=""  style="max-width: 200px;"> 
+                    <!-- class="rounded-circle mb-3" -->
+                    <h2 id="authorName" class="mb-3"></h2>
+                    <p id="authorBio" class="lead"></p>
+                    <button id="closeModel" class="btn btn-secondary mt-3">Close</button>
+                </div>
+            </div>
+        </dialog>
+    </div>
+
+    
+    <script src="/js/result.js">
+        
+    </script>
+</body>
+</html>
